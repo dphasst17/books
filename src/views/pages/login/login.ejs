@@ -1,0 +1,178 @@
+<section class="relative py-4 lg:py-11 font-poppins h-screen flex">
+  <div class="max-w-6xl px-1 mx-auto lg:px-6 flex">
+    <div class="flex flex-wrap items-center">
+      <div class="w-full lg:w-2/5">
+        <div class="bg-white shadow-lg dark:bg-gray-900 p-11">
+          <div class="text-center mb-7">
+            <span
+              class="inline-block mb-3 font-semibold text-base text-blue-500"
+              >Login</span
+            >
+            <h2 class="text-3xl font-bold text-gray-700 dark:text-gray-300">
+              Join our community
+            </h2>
+          </div>
+          <div class="relative flex flex-wrap mb-5">
+            <input
+                id="username"
+              type="text"
+              class="relative w-full py-4 pl-4 mb-2 text-sm border rounded dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700 md:mb-0"
+              placeholder="..."
+            />
+            <span
+              class="absolute top-0 left-0 inline-block px-1 ml-4 -mt-2 text-xs text-gray-500 bg-white dark:text-gray-300 dark:bg-gray-800"
+              >Email address</span
+            >
+          </div>
+          <div class="relative flex flex-wrap items-center mb-5">
+            <input
+              id="pass"
+              type="password"
+              class="relative w-full py-4 pl-4 mb-2 text-sm border rounded dark:text-gray-300 dark:border-gray-800 md:mb-0 dark:bg-gray-700"
+              placeholder="your password..."
+            />
+
+            <span
+              class="absolute top-0 left-0 inline-block px-1 ml-4 -mt-2 text-xs text-gray-500 bg-white dark:text-gray-300 dark:bg-gray-800"
+              >Password
+            </span>
+          </div>
+          <div
+            onclick="handleChangeType()"
+            id="textChangePass"
+            class="text-white text-[16px] font-semibold cursor-pointer mb-2"
+          >
+            Show password
+          </div>
+          <button
+            onclick="handleLogin()"
+            class="w-full px-4 py-4 mb-4 font-semibold text-base text-gray-200 bg-blue-500 rounded dark:bg-blue-500 hover:text-blue-200"
+            type="submit"
+          >
+            LOGIN
+          </button>
+          <div class="mb-4 text-center">
+            <a
+              href="#"
+              class="text-sm font-semibold text-blue-700 hover:underline dark:text-blue-300 dark:hover:text-blue-500"
+            >
+              forgot password?</a
+            >
+          </div>
+          <a
+            href="#"
+            class="flex items-center justify-center py-4 mb-4 border border-blue-400 dark:border-gray-600 hover:bg-blue-200 dark:hover:bg-gray-800"
+          >
+            <span class="inline-block mr-4 text-blue-800 dark:text-gray-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-facebook"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+                />
+              </svg>
+            </span>
+            <span
+              class="text-xs font-bold text-blue-800 lg:text-sm dark:text-gray-400"
+            >
+              Login with Facebook</span
+            >
+          </a>
+          <a
+            href="#"
+            class="flex items-center justify-center py-4 border border-blue-400 dark:border-gray-600 hover:bg-blue-200 dark:hover:bg-gray-800"
+          >
+            <span class="inline-block mr-4 text-blue-800 dark:text-gray-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-google"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"
+                />
+              </svg>
+            </span>
+            <span
+              class="text-xs font-bold text-blue-800 lg:text-sm dark:text-gray-400"
+            >
+              Login with Google</span
+            >
+          </a>
+          <p class="mt-4 text-sm text-gray-700 dark:text-gray-400">
+            Need an account?
+            <a
+              href="/register"
+              class="font-bold text-base text-blue-500 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400"
+            >
+              Create an account</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="hidden w-full px-10 mb-16 lg:w-1/2 lg:mb-0 lg:block">
+        <div class="text-center">
+          <span class="text-2xl font-medium text-blue-600 dark:text-blue-400"
+            >Welcome</span
+          >
+          <h2
+            class="mt-3 mb-6 text-4xl font-bold text-gray-800 dark:text-gray-400"
+          >
+            Join our community with your login credentials
+          </h2>
+          <p class="text-lg text-gray-500 dark:text-blue-400">
+            Lorem ipsum dor amet set amirospis
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const handleChangeType = () => {
+    const pass = document.getElementById("pass");
+    const value = document.getElementById("textChangePass");
+    if (pass.type === "password") {
+      pass.type = "text";
+      value.innerText = "Hide Password";
+    } else {
+      pass.type = "password";
+      value.innerText = "Show Password";
+    }
+  };
+  const handleLogin = () => {
+    const username = document.getElementById("username");
+    const password = document.getElementById("pass");
+    const isValid = false;
+    if (username.value === '') {
+        console.log(false)
+      isValid === false;
+    }
+    if (password.value === '') {
+        console.log(false)
+      isValid === false;
+    }
+    if(username.value !== '' && password.value !== ''){
+        isValid === true
+    }
+    /* isValid === true && fetch('/auth/login',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({username:username.value,password:password.value})
+        })
+        .then(res => res.json())
+        .then(res => {
+           
+        }) */
+  };
+</script>

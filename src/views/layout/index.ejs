@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%- include('../tailwind.ejs')%>
+    <title>
+      <%- include('./viewTitle')%>
+    </title>
+  </head>
+  <body>
+    <%- url === "/login" || url === "/register" ? '' : include('./header') %>
+    <div class="main w-full flex flex-wrap justify-center dark:bg-gray-800 px-2">
+      <%- include('./viewRouter')%>
+    </div>
+    <%- url === "/login" || url === "/register" ? '' : include('./footer') %>
+    <script src="../../public/js/token.js"></script>
+  </body>
+</html>
