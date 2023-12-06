@@ -1,0 +1,12 @@
+POST http://localhost:3030/auth/login
+Content-Type: application/json
+
+
+{
+    "username":"admin",
+    "password":"thisispasswordforadmin"
+}
+###
+POST http://localhost:3030/auth/token
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluLXRva2VuIiwiaWF0IjoxNzAwMzc2MzUwLCJleHAiOjE3MDA4MDgzNTB9.3ZmZQ5TpTiS8vukoNQrhLVFLIaKJ0Hapfic71I1eBEc

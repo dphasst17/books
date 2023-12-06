@@ -1,0 +1,39 @@
+<div class="h-newProduct w-4/5 h-auto mx-auto my-10">
+    <h2 class="pb-2 text-2xl font-bold text-center text-gray-800 md:text-4xl dark:text-gray-400">
+        New Products
+    </h2>
+    <section class="flex items-center bg-gray-100 font-poppins dark:bg-gray-800">
+        <div class="container p-4 mx-auto">
+            <div id="h-news" class="flex flex-wrap mb-20 -mx-3">
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    fetch('/api/new/product')
+    .then(res => res.json())
+    .then(res => {
+        console.log(res.data)
+        viewNewProduct(res.data)
+    })
+    const viewNewProduct = (data) => {
+        let viewData = data.map(d => `<div class="w-full px-3 mb-6 lg:w-1/3 lg:mb-0">
+                    <div class="relative w-full h-64 mb-6 bg-center bg-no-repeat bg-cover"
+                        style="background-image: url('${d.imagesBook}');">
+                        <div class="absolute w-full h-full bg-gray-900 bg-opacity-60"></div>
+                        <span
+                            class="relative z-40 inline-block px-2 py-1 mt-4 ml-4 text-xs font-bold text-gray-100 bg-blue-500 rounded-full ">
+                            New</span>
+                        <a class="absolute inset-0 flex items-end" href='/detail/product/${d.isbn}'>
+                            <div class="pb-12 pl-12">
+                                <h2 class="mb-2 text-3xl font-bold text-white ">${d.name}</h2>
+                                <p class="text-xl font-bold text-white ">
+                                    <span>$${d.price}</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+               </div>`)
+        document.getElementById('h-news').innerHTML = viewData.join('')
+    }
+</script>

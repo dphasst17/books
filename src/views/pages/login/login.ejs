@@ -151,28 +151,30 @@
   const handleLogin = () => {
     const username = document.getElementById("username");
     const password = document.getElementById("pass");
-    const isValid = false;
-    if (username.value === '') {
-        console.log(false)
-      isValid === false;
-    }
-    if (password.value === '') {
-        console.log(false)
-      isValid === false;
-    }
+    username.value === '' ? username.style.border = 'solid 1px red' :  username.style.border = 'solid 1px green'
+    password.value === '' ? password.style.border = 'solid 1px red' :  password.style.border = 'solid 1px green'
     if(username.value !== '' && password.value !== ''){
-        isValid === true
-    }
-    /* isValid === true && fetch('/auth/login',{
+        fetch('/auth/login',{
             method:'POST',
             headers:{
-                'Content-Type':'application/json'
+              'Content-Type':'application/json'
             },
             body:JSON.stringify({username:username.value,password:password.value})
         })
         .then(res => res.json())
         .then(res => {
-           
-        }) */
+          if(res.status === 200){
+            handleSetCookie('access',res.data.accessToken,res.data.expAccess)
+            handleSetCookie('refresh',res.data.refreshToken,res.data.expRefresh)
+            localCustom('set','expAccess',res.data.expAccess)
+            localCustom('set','expRefresh',res.data.expRefresh)
+            localCustom('set','userLogin',true)
+            window.location.href="/"
+          }else{
+            alert(res.message)
+          }
+          
+        })
+    }
   };
 </script>

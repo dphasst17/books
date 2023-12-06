@@ -3,7 +3,11 @@ import * as product from "../models/productModel.js"
 const pool = poolConnectDB();
 
 export const viewProduct = (req,res) => {
-    res.render("./layout/index",{url:"/product"})
+    if (req.path === '/product') {
+        res.render("./layout/index", {url: "/product"});
+    } else if (req.path === '/admin/product') {
+        res.render("./layout/admin",{url:'/product'});
+    }
 }
 export const viewDetail = (req,res) => {
     const isbn = req.params['isbn'];
@@ -16,7 +20,16 @@ export const viewDetail = (req,res) => {
             });
             return;
         }
-        res.render("./layout/index",{url:"/detail",data:results})
+        const isNull = results.every(c => c.idBooks === null)
+        if(isNull){
+            res.render("./layout/index",{url:"/404"})
+        }else{
+
+            let name = results.map(e => e.name)
+            let idBooks = results.map(e => e.idBooks)
+    
+            res.render("./layout/index",{url:"/detail",idBooks:idBooks,name:name,data:results})
+        }
     })
 }
 export const index = (req,res) => {
@@ -72,8 +85,30 @@ export const detail = (req,res) => {
             });
             return;
         }
-        if(results.length === 0 ){
+        const isNull = results.every(c => c.idBooks === null)
+        if(isNull ){
             res.status(404).json({status:404,message:"No data result"})
+        }else{
+
+            res.status(200).json({status:200,data:results.map(e => {
+                return {
+                    ...e,
+                    average_score:Number(e.average_score)
+                }
+            })})
+        }
+    })
+}
+export const getNew = (req,res) => {
+    const sql = product.getNew()
+    pool.query(sql,(err,results) => {
+        if (err) {
+            res.status(500).json({
+                err1:err,
+                status:500,
+                message: "A server error occurred. Please try again in 5 minutes.",
+            });
+            return;
         }
         res.status(200).json({status:200,data:results})
     })

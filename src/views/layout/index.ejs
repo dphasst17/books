@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%- include('../tailwind.ejs')%>
+    <script src="../../../public/js/localStorage.js"></script>
+    <script src="../../../public/js/token.js"></script>
     <title>
       <%- include('./viewTitle')%>
     </title>
@@ -14,6 +16,6 @@
       <%- include('./viewRouter')%>
     </div>
     <%- url === "/login" || url === "/register" ? '' : include('./footer') %>
-    <script src="../../public/js/token.js"></script>
+    <script src="../../../public/js/index.js"></script>
   </body>
 </html>
